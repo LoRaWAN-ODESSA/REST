@@ -45,7 +45,11 @@ public class MessageController {
 
         messageFromDb.putAll(message);
         messageFromDb.put("id", id);
-
+        for (int i = 0; i < messages.size(); i++) {
+            if(messages.get(i).get("id").equals(id)) {
+                messages.get(i).putAll(messageFromDb);
+            }
+        }
         return messageFromDb;
     }
 
